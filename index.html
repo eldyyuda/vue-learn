@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: red;
+            height: 200px;
+            width: 200px;
+        }
+        .boxtwo{
+            background-color: aqua;
+            height: 200px;
+        }
+        .boxthree{
+            background-color: chartreuse;
+            height: 200px;
+        }
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        {{greeting}}
+        <input @keyup.enter="greet(greeting+'!!!!!')" v-model="greeting"/>
+        <hr>
+        <button @click.prevent="toggleBox">Show box</button>
+        &nbsp;
+        <div v-if="isVisible" class="box"></div>
+        <!-- <div v-else-if="ïsVisible2" class="boxtwo"></div>
+        <div v-else class="boxthree"></div> -->
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        let app = Vue.createApp({
+            data:function() {
+                return {
+                    greeting:'Hello World',
+                    isVisible:false,
+                    // isVisible2:true,
+                   } 
+                },
+                methods: {
+                    toggleBox(){
+                        this.isVisible= !this.isVisible
+                    },
+                    greet(greeting){
+                        console.log(this.greeting)
+                    }
+                },
+
+            }
+        )
+        app.mount('#app')
+
+
+    </script>
+</body>
+</html>
