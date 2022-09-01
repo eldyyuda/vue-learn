@@ -1,5 +1,4 @@
-let app = Vue.createApp({
-        
+let app = Vue.createApp({ 
     data() {
       return {
         showSideBar:false,
