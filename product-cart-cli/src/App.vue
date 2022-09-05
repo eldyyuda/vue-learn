@@ -59,7 +59,7 @@ export default {
   },
   data () {
     return {
-      showSideBar: true,
+      showSideBar: false,
       inventory: Food,
       cart: {
       }
@@ -73,11 +73,10 @@ export default {
     }
   },
   methods: {
-    addToCart (name, i) {
+    addToCart (name, i, quantity) {
       if (!this.cart[name]) this.cart[name] = 0
-      this.cart[name] += this.inventory[i].quantity
+      this.cart[name] += quantity
       console.log(this.cart)
-      this.inventory[i].quantity = 0
     },
     toggleSideBar () {
       this.showSideBar = !this.showSideBar

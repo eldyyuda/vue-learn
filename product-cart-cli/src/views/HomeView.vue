@@ -11,8 +11,13 @@
       <h2>Recommended</h2>
       <div class="recommended">
 
-        <div v-for="(product,i) in inventory.slice(0,3)" :key="product.id" class="card">
-          <div class="card-title">
+        <ProductCard v-for="(product,index) in inventory.slice(0,3)"
+        :key="product.id"
+        class="card"
+        :index="index"
+        :product="product"
+        :addToCard="addToCard"/>
+          <!-- <div class="card-title">
             {{product.name}}
           </div>
           <div class="card-body">
@@ -48,8 +53,7 @@
             <button @click="addToCart(product.name,i)" class="btn btn-light">
               Add to cart
             </button>
-          </div>
-        </div>
+          </div> -->
         <!-- <div class="card">
           <div class="card-title">
             Pineapples
@@ -132,12 +136,13 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-
+import ProductCard from '@/components/ProductCard.vue'
 export default {
   name: 'HomeView',
   props: ['inventory', 'addToCart'],
   components: {
     // HelloWorld
+    ProductCard
   }
 }
 </script>
