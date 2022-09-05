@@ -16,7 +16,7 @@
         class="card"
         :index="index"
         :product="product"
-        :addToCard="addToCard"/>
+        :addToCart="addToCart"/>
           <!-- <div class="card-title">
             {{product.name}}
           </div>

@@ -2,7 +2,13 @@
     <main class="wrapper">
         <h1>Products</h1>
         <div class="card-container">
-          <div v-for="(product,i) in inventory" :key="product.id" class="card">
+          <ProductCard v-for="(product,index) in inventory.slice(0,6)"
+          :key="product.id"
+          class="card"
+          :index="index"
+          :product="product"
+          :addToCart="addToCart"/>
+          <!-- <div v-for="(product,i) in inventory" :key="product.id" class="card">
             <div class="card-title">
               {{product.name}}
             </div>
@@ -40,7 +46,7 @@
                 Add to cart
               </button>
             </div>
-          </div>
+          </div> -->
 
           <!-- <div class="card">
             <div class="card-title">
@@ -234,16 +240,13 @@
       </main>
 </template>
 <script>
-import Food from '../food.json'
+// import Food from '../food.json'
+import ProductCard from '@/components/ProductCard.vue'
 export default {
   name: 'MyProducts',
-  data () {
-    return {
-      inventory: Food
-    }
-  },
+  props: ['inventory', 'addToCart'],
   components: {
-    // HelloWorld
+    ProductCard
   }
 }
 </script>
